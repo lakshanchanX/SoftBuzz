@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftBuzz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: rgb(29, 29, 29);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            border: 2px solid rgb(255, 157, 0);
+            border-radius:50px ;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: rgba(54, 48, 32, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(235, 233, 233, 0.1);
+            border: 1px solid rgb(255, 157, 0);
+            color: #ffffff;
+            
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ff8c00;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+        }
+
+        .search-btn:hover {
+            background: #ff7300;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background: rgba(239, 150, 5, 0.532);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: rgb(211, 148, 24);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+        }
+        .tino {
+                 font-size: 20px;
+
+
+            }
+
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .software-card {
+            background: rgba(45, 45, 45, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(188, 188, 188, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.348);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .software-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(160, 160, 160, 0.15);
+        }
+
+        .software-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #faab18, #e38821);
+        }
+
+        .software-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e0911a, #d8ac3d);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .software-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        
+
+        .software-description {
+            color: #d5d4d4;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .software-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .download-btn {
+    display: inline-block;
+    text-decoration: none; /* This removes the underline */
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ec9c08, #de750b);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(249, 154, 2, 0.244);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 0;
+            color: rgba(255,255,255,0.8);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .categories {
+                gap: 10px;
+            }
+            
+            .category-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .software-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                gap: 20px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">SoftBuzz 🚀 </div>
+            <div class="tagline">Your trusted source for safe & free software downloads</div>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search for software..." id="searchInput">
+                <button class="search-btn" onclick="searchSoftware()">🔍</button>
+            </div>
+        </header>
+        
+
+        <div class="categories">
+            <div class="category-btn active" onclick="filterCategory('all')">All</div>
+            <div class="category-btn" onclick="filterCategory('productivity')">Productivity</div>
+            <div class="category-btn" onclick="filterCategory('media')">Media</div>
+            <div class="category-btn" onclick="filterCategory('development')">Development</div>
+            <div class="category-btn" onclick="filterCategory('utilities')">Utilities</div>
+            <div class="category-btn" onclick="filterCategory('security')">Security</div>
+        </div>
+    
+
+        <div class="stats">
+            
+            <div class="stat-item">
+                <span class="stat-number">✅ Easy<P class="tino">Downloads</P></span>
+                
+            </div>
+            <p></p><p></p>
+            <div class="stat-item">
+                <span class="stat-number">🛡️100%<P class="tino">Virus Free</P></span>
+               
+            </div>
+        </div>
+
+        <div class="software-grid" id="softwareGrid">
+            <!-- Software cards will be populated by JavaScript -->
+        </div>
+
+        <footer class="footer">
+            
+            <p>&copy; 2025 SoftBuzz. All software is provided by their respective developers.</p>
+            
+        </footer>
+    </div>
+
+    <script>
+        const softwareData = [
+            {
+    name: "Visual Studio Code",
+    version: "1.95.3",
+    category: "development",
+    icon: "💻",
+    description: "Lightweight but powerful source code editorLightweight but powerful source code editor with built-in support.",
+    size: "85.2 MB",
+    downloads: "2.1M",
+    rating: "4.8/5",
+    downloadUrl: "https://update.code.visualstudio.com/latest/win32-x64/stable"
+}
+,
+            {
+                name: "VLC Media Player",
+                version: "3.0.20",
+                category: "media",
+                icon: "🎬",
+                description: "Free and open source cross-platform multimedia player that plays most multimedia files and streaming protocols.",
+                size: "40.3 MB",
+                downloads: "1.8M",
+                rating: "4.7/5",
+                downloadUrl: "https://get.videolan.org/vlc/3.0.21/win64/vlc-3.0.21-win64.exe"
+            },
+            {
+                name: "WinRAR",
+                version: "23.01",
+                category: "utilities",
+                icon: "📦",
+                description: "File archiver with high compression ratio. Supports RAR, 7z, ZIP, GZIP, BZIP2 and TAR formats.",
+                size: "1.5 MB",
+                downloads: "950K",
+                rating: "4.6/5",
+                downloadUrl: "https://www.win-rar.com/postdownload.html?&L=0"
+            },
+            {
+                name: "Adobe Acrobat Pro DC",
+                version: "2020",
+                category: "productivity",
+                icon: "📝",
+                description: "Cracked Pdf Viewer has all pro features like - Editing, Adding signature, Converting to Jpg/PNG/Jpeg, Word etc.",
+                size: "4.8 MB",
+                downloads: "780K",
+                rating: "4.5/5",
+                downloadUrl: "https://gofile.io/d/V5yJo4"
+
+            },
+            {
+                name: "LibreOffice",
+                version: "7.6.4",
+                category: "productivity",
+                icon: "📄",
+                description: "Free and powerful office suite with word processor, spreadsheet, presentation software and more.",
+                size: "295 MB",
+                downloads: "1.2M",
+                rating: "4.4/5",
+                downloadUrl: "https://www.libreoffice.org/donate/dl/win-x86_64/25.2.4/en-GB/LibreOffice_25.2.4_Win_x86-64.msi"
+            },
+            {
+                name: "OBS Studio",
+                version: "30.0.2",
+                category: "media",
+                icon: "📹",
+                description: "Free and open source software for video recording and live streaming with powerful features.",
+                size: "118 MB",
+                downloads: "890K",
+                rating: "4.6/5",
+                downloadUrl: "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-31.0.3-Windows-Installer.exe"
+            },
+            {
+                name: "Notepad++",
+                version: "8.6.2",
+                category: "development",
+                icon: "📝",
+                description: "Free source code editor which supports several languages with syntax highlighting and code folding.",
+                size: "4.2 MB",
+                downloads: "1.1M",
+                rating: "4.7/5",
+                downloadUrl: "https://notepad-plus-plus.org/downloads/"
+            },
+            {
+                name: "CCleaner",
+                version: "6.19",
+                category: "security",
+                icon: "🧹",
+                description: "System optimization and privacy tool that removes unused files and cleans traces of online activities.",
+                size: "35.8 MB",
+                downloads: "650K",
+                rating: "4.3/5",
+                downloadUrl: "https://www.ccleaner.com/ccleaner/download/standard"
+            },
+            {
+                name: "CorelDraw",
+                version: "2.10.36",
+                category: "media",
+                icon: "🎨",
+                description: "Cracked version of paid image editor with advanced photo manipulation and digital art capabilities.",
+                size: "182 MB",
+                downloads: "720K",
+                rating: "4.7/5",
+                downloadUrl: "https://gofile.io/d/ogMwPh"
+            }
+        ];
+
+        let currentCategory = 'all';
+        let currentSearch = '';
+
+        function renderSoftware() {
+            const grid = document.getElementById('softwareGrid');
+            let filteredSoftware = softwareData;
+
+            if (currentCategory !== 'all') {
+                filteredSoftware = filteredSoftware.filter(software => software.category === currentCategory);
+            }
+
+            if (currentSearch) {
+                filteredSoftware = filteredSoftware.filter(software => 
+                    software.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
+                    software.description.toLowerCase().includes(currentSearch.toLowerCase())
+                );
+            }
+
+            grid.innerHTML = filteredSoftware.map(software => `
+    <div class="software-card">
+        <div class="software-icon">${software.icon}</div>
+        <div class="software-title">${software.name}</div>
+        <div class="software-description">${software.description}</div>
+        <div class="software-meta">
+            <span>💾 ${software.size}</span>
+            <span>⭐ ${software.rating}</span>
+            <span>⬇️ ${software.downloads}</span>
+        </div>
+        <a class="download-btn" href="${software.downloadUrl}" download target="_blank">
+            Download Now
+        </a>
+    </div>
+`).join('');
+
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            renderSoftware();
+        }
+
+        function searchSoftware() {
+            const searchInput = document.getElementById('searchInput');
+            currentSearch = searchInput.value;
+            renderSoftware();
+        }
+
+        function downloadSoftware(softwareName) {
+            // Simulate download process
+            const btn = event.target;
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Preparing Download...';
+            btn.style.background = '#28a745';
+            
+            setTimeout(() => {
+                btn.textContent = 'Download Started!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                    
+                    // Show download notification
+                    alert(`Download of ${softwareName} has started! Please check your Downloads folder.`);
+                }, 2000);
+            }, 1000);
+        }
+
+        // Enable search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchSoftware();
+            }
+        });
+
+        // Initialize the page
+        renderSoftware();
+    </script>
+</body>
+</html>
