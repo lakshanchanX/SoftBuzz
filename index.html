@@ -3,23 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-    <title>SoftBuzz</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+
+
+    <title>SoftBuzz </title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        /* Scrollbar Track */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Background of the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #1a1a1a; 
+  border-radius: 10px;
+}
+
+/* Scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffa600, #ff7a00);
+  border-radius: 10px;
+  border: 2px solid #242424; /* creates spacing around thumb */
+}
+
+/* On hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffbf00, #ff8800);
+}
+html {
+  scroll-behavior: smooth;
+}
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
             background: rgb(29, 29, 29);
             min-height: 100vh;
             color: #333;
+             font-family: 'Inter', sans-serif;
+            
         }
 
         .container {
@@ -30,13 +57,14 @@
 
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: -30px;
             padding: 40px 0;
         }
 
         .logo {
             font-size: 3rem;
-            font-weight: bold;
+             font-family: 'Poppins', sans-serif;
+  font-weight: bold;
             color: white;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             margin-bottom: 10px;
@@ -52,14 +80,15 @@
             max-width: 500px;
             margin: 0 auto;
             position: relative;
-            border: px solid rgb(255, 157, 0);
+            border: 0px solid rgb(255, 157, 0);
             border-radius:50px ;
+            margin-top: 90px;
         }
        
         .search-input:hover {
 
-background: rgba(164, 128, 31, 0.337);
 
+box-shadow: 0 0 10px #8f671d4f, 0 0 20px #7e591460;
 
         
         }
@@ -67,18 +96,20 @@ background: rgba(164, 128, 31, 0.337);
         .search-input {
             width: 100%;
             padding: 15px 50px 15px 20px;
-            border: none;
+            
             border-radius: 50px;
             font-size: 1rem;
             background: rgba(114, 88, 16, 0.303);
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(235, 233, 233, 0.127);
+            box-shadow: 0 8px 32px rgba(122, 86, 14, 0.206);
             border: 1px solid rgb(255, 157, 0);
             color: #ffffff;
+            font-family: 'Inter', sans-serif;
             
         }
         .search-input:focus {
         outline: none;
+  box-shadow: 0 0 10px #8363284f, 0 0 20px #9d6b0e60;
 
 
         }
@@ -112,6 +143,8 @@ background: rgba(164, 128, 31, 0.337);
             gap: 15px;
             margin: 40px 0;
             flex-wrap: wrap;
+            
+            
         }
 
         .category-btn {
@@ -145,19 +178,22 @@ background: rgba(164, 128, 31, 0.337);
 
         .software-card {
             background: rgba(45, 45, 45, 0.95);
-            border-radius: 20px;
+            
             padding: 25px;
-            box-shadow: 0 15px 35px rgba(188, 188, 188, 0.1);
+            
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.348);
-            transition: all 0.3s ease;
+            
             position: relative;
             overflow: hidden;
+            border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(97, 90, 77, 0.1);
+    transition: 0.3s ease;
         }
 
         .software-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(160, 160, 160, 0.15);
+            box-shadow: 0 12px 40px rgba(138, 108, 45, 0.25);
         }
 
         .software-card::before {
@@ -166,7 +202,7 @@ background: rgba(164, 128, 31, 0.337);
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 0px;
             background: linear-gradient(90deg, #faab18, #e38821);
         }
 
@@ -211,6 +247,7 @@ background: rgba(164, 128, 31, 0.337);
             margin-bottom: 20px;
             font-size: 0.9rem;
             color: #dcd8d8;
+            
         }
 
         .download-btn {
@@ -220,7 +257,7 @@ background: rgba(164, 128, 31, 0.337);
     width: 100%;
     padding: 12px;
     background: linear-gradient(135deg, #ec9c08, #ffa600c8);
-    color: rgba(255, 255, 255, 0.865);
+    color: rgba(255, 255, 255, 0.957);
     border: none;
     border-radius: 10px;
     font-size: 1rem;
@@ -233,8 +270,9 @@ background: rgba(164, 128, 31, 0.337);
 }
 
 .download-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 8px 25px rgba(249, 154, 2, 0.244);
+    
 }
 
 .download-btn:active {
@@ -296,6 +334,7 @@ background: rgba(164, 128, 31, 0.337);
                 gap: 20px;
             }
             
+            
         }
     </style>
 </head>
@@ -342,7 +381,8 @@ background: rgba(164, 128, 31, 0.337);
 
         <footer class="footer">
             
-            <p>&copy; 2025 SoftBuzz. All software is provided by their respective developers.</p>
+             <p>&copy; 2025 SoftBuzz. Built with ❤️ for safe downloads.</p>
+    
             
         </footer>
     </div>
@@ -419,22 +459,23 @@ background: rgba(164, 128, 31, 0.337);
                 downloadUrl: "https://gofile.io/d/ehBXKS"
 
             },
+            
             {
-                name: "VLC Media Player",
-                version: "- 3.0.20",
-                category: "media",
-                icon: "🎬",
-                description: "Free and open source cross-platform multimedia player that plays most multimedia files and streaming protocols.",
-                size: "40.3 MB",
-                downloads: "1.8M",
-                rating: "4.7/5",
-                downloadUrl: "https://get.videolan.org/vlc/3.0.21/win64/vlc-3.0.21-win64.exe"
-            },
+             name: "Brave Browser",
+    version: "- Latest",
+    category: "utilities",
+    icon: "🦁",
+    description: "Ad-Free Browser it blocks ads and trackers that slow you down and invade your privacy.",
+    size: "85.2 MB",
+    downloads: "2.6M",
+    rating: "4.8/5",
+    downloadUrl: "https://laptop-updates.brave.com/download/BRV010?bitness=64"
+},
             {
                 name: "WinRAR",
                 version: "- 23.01",
                 category: "utilities",
-                icon: "📦",
+                icon: "🗃️",
                 description: "File archiver with high compression ratio. Supports RAR, 7z, ZIP, GZIP, BZIP2 and TAR formats.",
                 size: "1.5 MB",
                 downloads: "950K",
@@ -488,17 +529,18 @@ background: rgba(164, 128, 31, 0.337);
                 downloadUrl: "https://www.ccleaner.com/ccleaner/download/standard"
             },
             {
-                name: "Pdf Converter Elite",
-                version: "- 5.0.4.0",
-                category: "productivity",
-                icon: "📃",
-                description: "Cracked Pdf Coverter has all pro features like - Editing, Adding signature, Converting to Jpg/PNG/Jpeg, Word etc.",
-                size: "71.3 MB",
-                downloads: "240K",
-                rating: "4.0/5",
-                downloadUrl: "https://gofile.io/d/RaC8yc"
+                name: "Big City Adventure - New York",
+                version: "- 1.0.0.3",
+                category: "Games",
+                icon: "🧩",
+                description: "Cracked version of Big City Adventure - New York full game for free ",
+                size: "53 MB",
+                downloads: "480K",
+                rating: "4.4/5",
+                downloadUrl: "https://gofile.io/d/gOyDbn"
 
             },
+            
             {
                 name: "A Difficult Game About Climbing",
                 version: "- 1.138",
@@ -547,20 +589,7 @@ background: rgba(164, 128, 31, 0.337);
                 rating: "4.6/5",
                 downloadUrl: "https://gofile.io/d/dPRmVo"
             },
-            
-            {
-                name: "Big City Adventure - New York",
-                version: "- 1.0.0.3",
-                category: "Games",
-                icon: "🧩",
-                description: "Cracked version of Big City Adventure - New York full game for free ",
-                size: "53 MB",
-                downloads: "480K",
-                rating: "4.4/5",
-                downloadUrl: "https://gofile.io/d/gOyDbn"
-
-            },
-            {
+             {
                 name: "Prince Of Persia",
                 version: "- 1.0.45",
                 category: "Games",
@@ -573,16 +602,30 @@ background: rgba(164, 128, 31, 0.337);
 
             },
             {
-             name: "Brave Browser",
-    version: "- Latest",
-    category: "utilities",
-    icon: "🌐",
-    description: "Ad-Free Browser it blocks ads and trackers that slow you down and invade your privacy.",
-    size: "85.2 MB",
-    downloads: "2.6M",
-    rating: "4.8/5",
-    downloadUrl: "https://laptop-updates.brave.com/download/BRV010?bitness=64"
-},
+                name: "Pdf Converter Elite",
+                version: "- 5.0.4.0",
+                category: "productivity",
+                icon: "📃",
+                description: "Cracked Pdf Coverter has all pro features like - Editing, Adding signature, Converting to Jpg/PNG/Jpeg, Word etc.",
+                size: "71.3 MB",
+                downloads: "240K",
+                rating: "4.0/5",
+                downloadUrl: "https://gofile.io/d/RaC8yc"
+
+            },
+            {
+                name: "VLC Media Player",
+                version: "- 3.0.20",
+                category: "media",
+                icon: "🎬",
+                description: "Free and open source cross-platform multimedia player that plays most multimedia files and streaming protocols.",
+                size: "40.3 MB",
+                downloads: "1.8M",
+                rating: "4.7/5",
+                downloadUrl: "https://get.videolan.org/vlc/3.0.21/win64/vlc-3.0.21-win64.exe"
+            },
+           
+            
 {
              name: "Zen Browser",
     version: "- Latest",
