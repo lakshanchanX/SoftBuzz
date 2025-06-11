@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
     <title>SoftBuzz</title>
     <style>
         * {
@@ -48,8 +52,16 @@
             max-width: 500px;
             margin: 0 auto;
             position: relative;
-            border: 2px solid rgb(255, 157, 0);
+            border: px solid rgb(255, 157, 0);
             border-radius:50px ;
+        }
+       
+        .search-input:hover {
+
+background: rgba(164, 128, 31, 0.337);
+
+
+        
         }
 
         .search-input {
@@ -58,13 +70,19 @@
             border: none;
             border-radius: 50px;
             font-size: 1rem;
-            background: rgba(54, 48, 32, 0.95);
+            background: rgba(114, 88, 16, 0.303);
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(235, 233, 233, 0.1);
+            box-shadow: 0 8px 32px rgba(235, 233, 233, 0.127);
             border: 1px solid rgb(255, 157, 0);
             color: #ffffff;
             
         }
+        .search-input:focus {
+        outline: none;
+
+
+        }
+        
 
         .search-btn {
             position: absolute;
@@ -85,6 +103,7 @@
         .search-btn:hover {
             background: #ff7300;
             transform: translateY(-50%) scale(1.1);
+
         }
 
         .categories {
@@ -97,7 +116,7 @@
 
         .category-btn {
             padding: 10px 20px;
-            background: rgba(239, 150, 5, 0.532);
+            background: rgba(239, 149, 5, 0.51);
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 25px;
             color: white;
@@ -108,7 +127,7 @@
 
         .category-btn:hover, .category-btn.active {
             background: rgb(211, 148, 24);
-            border-color: rgba(255,255,255,0.5);
+            border-color: rgba(236, 172, 12, 0.67);
             transform: translateY(-2px);
         }
         .tino {
@@ -154,7 +173,7 @@
         .software-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #e0911a, #d8ac3d);
+            background: linear-gradient(135deg, #e18c0ee4, #ffb909c5);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -162,6 +181,7 @@
             color: white;
             font-size: 1.5rem;
             margin-bottom: 15px;
+            
         }
 
         .software-title {
@@ -169,6 +189,11 @@
             font-weight: bold;
             margin-bottom: 8px;
             color: #ffffff;
+        }
+        .software-version {
+            color: #d7d6d6;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
         }
 
         
@@ -185,7 +210,7 @@
             align-items: center;
             margin-bottom: 20px;
             font-size: 0.9rem;
-            color: #666;
+            color: #dcd8d8;
         }
 
         .download-btn {
@@ -194,8 +219,8 @@
     text-align: center;
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #ec9c08, #de750b);
-    color: white;
+    background: linear-gradient(135deg, #ec9c08, #ffa600c8);
+    color: rgba(255, 255, 255, 0.865);
     border: none;
     border-radius: 10px;
     font-size: 1rem;
@@ -204,6 +229,7 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.348);
 }
 
 .download-btn:hover {
@@ -226,7 +252,7 @@
 
         .stat-item {
             text-align: center;
-            color: white;
+            color: rgb(255, 255, 255);
         }
 
         .stat-number {
@@ -276,7 +302,7 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">SoftBuzz 🚀 </div>
+            <div class="logo">SoftBuzz 🚀</div>
             <div class="tagline">Your trusted source for safe & free software downloads</div>
             <div class="search-bar">
                 <input type="text" class="search-input" placeholder="Search for software..." id="searchInput">
@@ -292,13 +318,15 @@
             <div class="category-btn" onclick="filterCategory('development')">Development</div>
             <div class="category-btn" onclick="filterCategory('utilities')">Utilities</div>
             <div class="category-btn" onclick="filterCategory('security')">Security</div>
+            <div class="category-btn" onclick="filterCategory('Games')">Games</div>
+            <div class="category-btn" onclick="filterCategory('tools')">Tools</div>
         </div>
     
 
         <div class="stats">
             
             <div class="stat-item">
-                <span class="stat-number">✅ Easy<P class="tino">Downloads</P></span>
+                <span class="stat-number">✅Easy<P class="tino">Downloads</P></span>
                 
             </div>
             <p></p><p></p>
@@ -322,8 +350,54 @@
     <script>
         const softwareData = [
             {
-    name: "Visual Studio Code",
-    version: "1.95.3",
+                name: "Adobe Acrobat Pro DC",
+                version: "- 20.21",
+                category: "productivity",
+                icon: "📝",
+                description: "Cracked Pdf Viewer has all pro features like - Editing, Adding signature, Converting to Jpg/PNG/Jpeg, Word etc.",
+                size: "578.8 MB",
+                downloads: "780K",
+                rating: "4.5/5",
+                downloadUrl: "https://gofile.io/d/Rzyxu6"
+
+            },
+             {
+                name: "CorelDraw Pro",
+                version: "- 22.0.0",
+                category: "productivity",
+                icon: "🎨",
+                description: "Cracked version of paid image editor with advanced photo manipulation and digital art capabilities.",
+                size: "750 MB",
+                downloads: "720K",
+                rating: "4.7/5",
+                downloadUrl: "https://gofile.io/d/Seramn"
+            },
+            {
+                name: "Microsoft Office 365",
+                version: "- 365",
+                category: "productivity",
+                icon: "📄",
+                description: "Powerful office suite with word processor, spreadsheet, presentation software and more.",
+                size: "4.9 GB",
+                downloads: "2.0M",
+                rating: "5/5",
+                downloadUrl: "https://gofile.io/d/LBDCd5"
+            },
+            {
+             name: "PhotoShop C6",
+    version: "- C6",
+    category: "productivity",
+    icon: "📸",
+    description: "Cracked version of paid image editor with advanced photo manipulation and digital art capabilities.",
+    size: "155 MB",
+    downloads: "2.7M",
+    rating: "4.3/5",
+    downloadUrl: "https://gofile.io/d/r8y6E8"
+},
+
+            {
+             name: "Visual Studio Code",
+    version: "- 1.95.3",
     category: "development",
     icon: "💻",
     description: "Lightweight but powerful source code editorLightweight but powerful source code editor with built-in support.",
@@ -331,11 +405,23 @@
     downloads: "2.1M",
     rating: "4.8/5",
     downloadUrl: "https://update.code.visualstudio.com/latest/win32-x64/stable"
-}
-,
+},
+
+{
+                name: "Foxit Reader Pro",
+                version: "- 1.0.0",
+                category: "productivity",
+                icon: "📃",
+                description: "Cracked Pdf Viewer has all pro features like - Editing, Adding signature, Converting to Jpg/PNG/Jpeg, Word etc.",
+                size: "70 MB",
+                downloads: "470K",
+                rating: "4.4/5",
+                downloadUrl: "https://gofile.io/d/ehBXKS"
+
+            },
             {
                 name: "VLC Media Player",
-                version: "3.0.20",
+                version: "- 3.0.20",
                 category: "media",
                 icon: "🎬",
                 description: "Free and open source cross-platform multimedia player that plays most multimedia files and streaming protocols.",
@@ -346,7 +432,7 @@
             },
             {
                 name: "WinRAR",
-                version: "23.01",
+                version: "- 23.01",
                 category: "utilities",
                 icon: "📦",
                 description: "File archiver with high compression ratio. Supports RAR, 7z, ZIP, GZIP, BZIP2 and TAR formats.",
@@ -355,21 +441,10 @@
                 rating: "4.6/5",
                 downloadUrl: "https://www.win-rar.com/postdownload.html?&L=0"
             },
-            {
-                name: "Adobe Acrobat Pro DC",
-                version: "2020",
-                category: "productivity",
-                icon: "📝",
-                description: "Cracked Pdf Viewer has all pro features like - Editing, Adding signature, Converting to Jpg/PNG/Jpeg, Word etc.",
-                size: "4.8 MB",
-                downloads: "780K",
-                rating: "4.5/5",
-                downloadUrl: "https://gofile.io/d/V5yJo4"
-
-            },
+            
             {
                 name: "LibreOffice",
-                version: "7.6.4",
+                version: "- 7.6.4",
                 category: "productivity",
                 icon: "📄",
                 description: "Free and powerful office suite with word processor, spreadsheet, presentation software and more.",
@@ -378,9 +453,10 @@
                 rating: "4.4/5",
                 downloadUrl: "https://www.libreoffice.org/donate/dl/win-x86_64/25.2.4/en-GB/LibreOffice_25.2.4_Win_x86-64.msi"
             },
+            
             {
                 name: "OBS Studio",
-                version: "30.0.2",
+                version: "- 30.0.2",
                 category: "media",
                 icon: "📹",
                 description: "Free and open source software for video recording and live streaming with powerful features.",
@@ -391,7 +467,7 @@
             },
             {
                 name: "Notepad++",
-                version: "8.6.2",
+                version: "- 8.6.2",
                 category: "development",
                 icon: "📝",
                 description: "Free source code editor which supports several languages with syntax highlighting and code folding.",
@@ -402,7 +478,7 @@
             },
             {
                 name: "CCleaner",
-                version: "6.19",
+                version: "- 6.19",
                 category: "security",
                 icon: "🧹",
                 description: "System optimization and privacy tool that removes unused files and cleans traces of online activities.",
@@ -412,16 +488,117 @@
                 downloadUrl: "https://www.ccleaner.com/ccleaner/download/standard"
             },
             {
-                name: "CorelDraw",
-                version: "2.10.36",
-                category: "media",
-                icon: "🎨",
-                description: "Cracked version of paid image editor with advanced photo manipulation and digital art capabilities.",
-                size: "182 MB",
-                downloads: "720K",
-                rating: "4.7/5",
-                downloadUrl: "https://gofile.io/d/ogMwPh"
-            }
+                name: "Pdf Converter Elite",
+                version: "- 5.0.4.0",
+                category: "productivity",
+                icon: "📃",
+                description: "Cracked Pdf Coverter has all pro features like - Editing, Adding signature, Converting to Jpg/PNG/Jpeg, Word etc.",
+                size: "71.3 MB",
+                downloads: "240K",
+                rating: "4.0/5",
+                downloadUrl: "https://gofile.io/d/RaC8yc"
+
+            },
+            {
+                name: "A Difficult Game About Climbing",
+                version: "- 1.138",
+                category: "Games",
+                icon: "🕹️",
+                description: "Cracked version of A Difficult Game About Climbing full game for free ",
+                size: "192 MB",
+                downloads: "410K",
+                rating: "4.2/5",
+                downloadUrl: "https://gofile.io/d/YxwQBT"
+
+            },
+            {
+                name: "Big City Adventure - San Francisco",
+                version: "- 1.0.0.4",
+                category: "Games",
+                icon: "🧩",
+                description: "Cracked version of Big City Adventure - San Francisco full game for free ",
+                size: "24 MB",
+                downloads: "560K",
+                rating: "4.6/5",
+                downloadUrl: "https://gofile.io/d/bncees"
+
+            },
+            
+            
+            {
+                name: "Windows Activator",
+                version: "- 10,11",
+                category: "tools",
+                icon: "🛠️",
+                description: "Save the text file as win.cmd and run it as administrator.",
+                size: "4 KB",
+                downloads: "1.2M",
+                rating: "4.8/5",
+                downloadUrl: "https://gofile.io/d/Nlv23E"
+            },
+            {
+                name: "Microsoft Office Activator",
+                version: "- 365",
+                category: "tools",
+                icon: "🛠️",
+                description: "Save the text file as ms.cmd and run it as administrator.",
+                size: "2.7 KB",
+                downloads: "1.0M",
+                rating: "4.6/5",
+                downloadUrl: "https://gofile.io/d/dPRmVo"
+            },
+            
+            {
+                name: "Big City Adventure - New York",
+                version: "- 1.0.0.3",
+                category: "Games",
+                icon: "🧩",
+                description: "Cracked version of Big City Adventure - New York full game for free ",
+                size: "53 MB",
+                downloads: "480K",
+                rating: "4.4/5",
+                downloadUrl: "https://gofile.io/d/gOyDbn"
+
+            },
+            {
+                name: "Prince Of Persia",
+                version: "- 1.0.45",
+                category: "Games",
+                icon: "🎮",
+                description: "Cracked version of Prince Of Persia full game for free ",
+                size: "3 GB",
+                downloads: "320K",
+                rating: "4.1/5",
+                downloadUrl: "https://gofile.io/d/xpqxjX"
+
+            },
+            {
+             name: "Brave Browser",
+    version: "- Latest",
+    category: "utilities",
+    icon: "🌐",
+    description: "Ad-Free Browser it blocks ads and trackers that slow you down and invade your privacy.",
+    size: "85.2 MB",
+    downloads: "2.6M",
+    rating: "4.8/5",
+    downloadUrl: "https://laptop-updates.brave.com/download/BRV010?bitness=64"
+},
+{
+             name: "Zen Browser",
+    version: "- Latest",
+    category: "utilities",
+    icon: "🌐",
+    description: "Clean Browser it is a modern clean brower which makes your experience fun.",
+    size: "7.5 MB",
+    downloads: "1M",
+    rating: "4.2/5",
+    downloadUrl: "https://github.com/zen-browser/desktop/releases/latest/download/zen.installer.exe"
+}
+            
+            
+            
+
+           
         ];
 
         let currentCategory = 'all';
@@ -446,6 +623,7 @@
     <div class="software-card">
         <div class="software-icon">${software.icon}</div>
         <div class="software-title">${software.name}</div>
+        <div class="software-version">Version ${software.version}</div>
         <div class="software-description">${software.description}</div>
         <div class="software-meta">
             <span>💾 ${software.size}</span>
